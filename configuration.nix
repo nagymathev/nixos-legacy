@@ -17,8 +17,11 @@ boot.loader.grub.enable = true;
 boot.loader.grub.device = "/dev/sda";
 boot.loader.grub.useOSProber = true;
 
-networking.hostName = "nixos"; # Define your hostname.
-# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+networking.hostName = "stellaris"; # Define your hostname.
+networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
+networking.networkmanager.unmanaged = [
+	"*-foo-bar"
+];
 
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";
