@@ -86,24 +86,25 @@ pulse.enable = true;
 
 # Define a user account. Don't forget to set a password with ‘passwd’.
 users.users.viktor = {
-isNormalUser = true;
-description = "viktor";
-extraGroups = [ "networkmanager" "wheel" ];
-packages = with pkgs; [
-	firefox
-	kate
-	thunderbird
-	steam
-	vivaldi
-	discord
-	vscode
-	anki-bin
+	isNormalUser = true;
+	description = "viktor";
+	extraGroups = [ "networkmanager" "wheel" ];
+	packages = with pkgs; [
+		firefox
+		kate
+		thunderbird
+		steam
+		vivaldi
+		discord
+		vscode
+		anki-bin
 	];
 };
 
 # Allow unfree packages
 nixpkgs.config.allowUnfree = true;
 
+nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # List packages installed in system profile. To search, run:
 # $ nix search wget
 environment.systemPackages = with pkgs; [
@@ -112,6 +113,7 @@ environment.systemPackages = with pkgs; [
 	wget
 	neovim
 ];
+environment.variables.EDITOR = "nvim";
 
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.
