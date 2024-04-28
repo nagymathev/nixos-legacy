@@ -1,5 +1,17 @@
 {
   "nodes": {
+    "CiscoPacketTracer_821_Ubuntu_64bit": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-SdhPun2mbqszsg7UGUIk5c2OPLlYTOU+XzYaqb8lCN0=",
+        "type": "file",
+        "url": "https://mega.nz/file/TplD1CDL#iwXRLgkIgVy-PGUwPcB-mJPMJ1S2y2p28J0H0v3yxQI"
+      },
+      "original": {
+        "type": "file",
+        "url": "https://mega.nz/file/TplD1CDL#iwXRLgkIgVy-PGUwPcB-mJPMJ1S2y2p28J0H0v3yxQI"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -71,6 +83,7 @@
     },
     "root": {
       "inputs": {
+        "CiscoPacketTracer_821_Ubuntu_64bit": "CiscoPacketTracer_821_Ubuntu_64bit",
         "home-manager": "home-manager",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",

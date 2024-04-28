@@ -30,11 +30,10 @@ xresources.properties = {
 home.packages = with pkgs; [
 
 	obsidian
-	#ciscoPacketTracer8
 	megasync
 
-	# here is some command line tools I use frequently
-	# feel free to add your own or remove some of them
+	# Commented out because I have not managed to find an automated solution yet.
+	#ciscoPacketTracer8 
 
 	neofetch
 
