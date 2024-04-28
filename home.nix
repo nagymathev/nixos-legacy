@@ -37,7 +37,6 @@ home.packages = with pkgs; [
 	firefox
 	vivaldi
 	thunderbird
-	vscode
 
 	steam
 	protonup-qt
@@ -165,6 +164,20 @@ programs.zsh = {
 	enableAutosuggestions = true;
 	shellAliases = {
 	};
+};
+
+programs.vscode = {
+	enable = true;
+	userSettings = {
+		"editor.detectIndentation" = false;
+		"editor.tabSize" = 8;
+		"editor.insertSpaces" = false;
+		"editor.indentSize" = "tabSize";
+		"editor.wordWrap" = "wordWrapColumn";
+	};
+	extensions = [
+		pkgs.vscode-extensions.jnoortheen.nix-ide
+	];
 };
 
 # This value determines the home Manager release that your
