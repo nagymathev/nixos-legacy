@@ -10,6 +10,7 @@ inputs = {
 		url = "github:nix-community/home-manager/release-23.11";
 		inputs.nixpkgs.follows = "nixpkgs";
 	};
+	tuxedo-rs.url = "github:AaronErhardt/tuxedo-rs";
 };
 
 outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, ... }@inputs:
@@ -31,6 +32,7 @@ in {
 	nixosConfigurations.stellaris = nixpkgs.lib.nixosSystem {
 		inherit system;
 		specialArgs = {
+			inherit inputs;
 			inherit pkgs;
 			inherit pkgs-unstable;
 		};

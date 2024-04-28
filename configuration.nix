@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, pkgs, pkgs-unstable, inputs, ... }:
 
 {
 imports =
@@ -118,6 +118,7 @@ environment.systemPackages = [
 	pkgs.git
 	pkgs.wget
 	pkgs-unstable.neovim
+	inputs.tuxedo-rs.packages."${pkgs.system}".tuxedo-rs
 ];
 environment.variables.EDITOR = "nvim";
 
