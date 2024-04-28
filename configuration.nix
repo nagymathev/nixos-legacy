@@ -10,6 +10,7 @@ imports =
 	./hardware-configuration.nix
 	./nvidia.nix
 	./specialisations.nix
+	./garbage.nix
 ];
 
 # Bootloader.
