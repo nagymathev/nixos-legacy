@@ -121,6 +121,9 @@ programs.alacritty = {
 		};
 		scrolling.multiplier = 5;
 		selection.save_to_clipboard = true;
+		window.dimensions.columns = 120;
+		window.dimensions.lines = 35;
+
 	};
 };
 
