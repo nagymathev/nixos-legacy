@@ -45,7 +45,13 @@ hardware.nvidia = {
 hardware.nvidia.prime = {
 
 	# Using sync mode by default as the laptop is docked most of the time. There is a specialisation available for on-the-go setting using offloading. This mode greatly increases performance and reduces screen tearing, at the expense of higher power consumpsion sinthe the dGPU will not go to sleep comletely unless called for, as in the case in Offload Mode.
-	sync.enable = true;
+	#sync.enable = true;
+
+	# Offloading by defautl because I don't want everything to run on the GPU as it does with sync mode.
+	offload = {
+		enable = true;
+		enableOffloadCmd = true;
+	};
 
 	# The Bus IDs of my Stellaris laptop
 	amdgpuBusId = "PCI:6:0:0";
