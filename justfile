@@ -1,5 +1,6 @@
 alias sw := switch
 alias up := update
+alias uh := update-home
 
 # rebuild system
 switch:
