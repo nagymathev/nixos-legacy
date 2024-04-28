@@ -59,6 +59,8 @@ hardware.tuxedo-rs = {
 	enable = true;
 	tailor-gui.enable = true;
 };
+# Temporarily until I figure out how to package tuxedo-drivers
+hardware.tuxedo-keyboard.enable = true;
 
 # Configure keymap in X11
 services.xserver = {
