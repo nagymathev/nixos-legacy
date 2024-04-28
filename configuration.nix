@@ -11,12 +11,15 @@ imports =
 	./nvidia.nix
 	./specialisations.nix
 	./garbage.nix
+	./tuxedo-specific.nix
 ];
 
 # Bootloader.
-boot.loader.grub.enable = true;
-boot.loader.grub.device = "/dev/sda";
-boot.loader.grub.useOSProber = true;
+#boot.loader.grub.enable = true;
+#boot.loader.grub.device = "/dev/sda";
+#boot.loader.grub.useOSProber = true;
+boot.loader.systemd-boot.enable = true;
+boot.loader.efi.canTouchEfiVariables = true;
 
 networking.hostName = "stellaris"; # Define your hostname.
 networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
@@ -56,13 +59,6 @@ services.xserver.enable = true;
 services.xserver.displayManager.sddm.enable = true;
 services.xserver.desktopManager.plasma5.enable = true;
 
-hardware.tuxedo-rs = {
-	enable = true;
-	tailor-gui.enable = true;
-};
-# Temporarily until I figure out how to package tuxedo-drivers
-hardware.tuxedo-keyboard.enable = true;
-
 # Configure keymap in X11
 services.xserver = {
 	layout = "gb";
@@ -100,7 +96,7 @@ users.users.viktor = {
 	isNormalUser = true;
 	description = "viktor";
 	extraGroups = [ "networkmanager" "wheel" ];
-	packages = with pkgs; [
+  packages = with pkgs; [
 	];
 };
 
