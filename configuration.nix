@@ -100,19 +100,15 @@ users.users.viktor = {
 	description = "viktor";
 	extraGroups = [ "networkmanager" "wheel" ];
 	packages = with pkgs; [
-		firefox
-		kate
-		thunderbird
-		steam
-		vivaldi
-		discord
-		vscode
-		anki-bin
 	];
 };
 
 programs.zsh.enable = true;
 users.defaultUserShell = pkgs.zsh;
+
+fonts.packages = [
+	pkgs-unstable.fira-code-nerdfont
+];
 
 # Allow unfree packages
 nixpkgs.config.allowUnfree = true;

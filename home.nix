@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
 
@@ -31,6 +31,17 @@ home.packages = with pkgs; [
 
 	obsidian
 	megasync
+	libreoffice
+	vlc
+
+	firefox
+	vivaldi
+	thunderbird
+	vscode
+
+	steam
+	discord
+	anki-bin
 
 	# Commented out because I have not managed to find an automated solution yet.
 	#ciscoPacketTracer8 
@@ -109,9 +120,22 @@ programs.git = {
 # starship - an customizable prompt for any shell
 programs.starship = {
 	enable = true;
+	enableZshIntegration = true;
 	settings = {
 		add_newline = false;
 		line_break.disabled = true;
+		time = {
+			disabled = false;
+			format = "[$time]($style)";
+		};
+		format = ''
+[╭─$fill──┤$time├──$fill─╮](bold green)
+[├╢](bold green)$directory$nix_shell$git_branch$git_status
+[╰─❯](bold green)'';
+		fill = {
+			symbol = "─";
+			style = "bold green";
+		};
 	};
 };
 
@@ -123,6 +147,7 @@ programs.alacritty = {
 		font = {
 			size = 9;
 			draw_bold_text_with_bright_colors = true;
+			family = "Fira Code Nerd Font Mono";
 		};
 		scrolling.multiplier = 5;
 		selection.save_to_clipboard = true;
@@ -135,6 +160,7 @@ programs.alacritty = {
 programs.zsh = {
 	enable = true;
 	enableCompletion = true;
+	enableAutosuggestions = true;
 	shellAliases = {
 	};
 };
