@@ -12,7 +12,7 @@ inputs = {
 	};
 };
 
-outputs = { self, nixpkgs, nixos-hardware, ... }@inputs: {
+outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
 	nixosConfigurations.stellaris = nixpkgs.lib.nixosSystem {
 		system = "x86_64-linux";
 		modules = [
