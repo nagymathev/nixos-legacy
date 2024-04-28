@@ -29,9 +29,9 @@ xresources.properties = {
 # Packages that should be installed to the user profile.
 home.packages = with pkgs; [
 
-	#obsidian
+	obsidian
 	#ciscoPacketTracer8
-	#megasync
+	megasync
 
 	# here is some command line tools I use frequently
 	# feel free to add your own or remove some of them
