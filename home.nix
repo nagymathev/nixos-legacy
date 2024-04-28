@@ -40,6 +40,8 @@ home.packages = with pkgs; [
 	vscode
 
 	steam
+	protonup-qt
+	heroic
 	discord
 	anki-bin
 
