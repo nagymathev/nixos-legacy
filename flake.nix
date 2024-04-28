@@ -12,9 +12,28 @@ inputs = {
 	};
 };
 
-outputs = { self, nixpkgs, nixos-hardware, home-manager, ... }@inputs: {
+outputs = { self, nixpkgs, nixpkgs-unstable nixos-hardware, home-manager, ... }@inputs:
+let
+	system = "x86_64-linux";
+	pkgs = import nixpkgs {
+		inherit system;
+		config.allowUnfree = true;
+		config.permittedInsecurePackages = [
+			"electron-25.9.0"
+		];
+	};
+	pkgs-unstable = import nixpkgs-unstable {
+		inherit system;
+		config.allowUnfree = true;
+	};
+	lib = nixpkgs.lib; 
+in {
 	nixosConfigurations.stellaris = nixpkgs.lib.nixosSystem {
-		system = "x86_64-linux";
+		inherit system;
+		specialArgs = {
+			inherit pkgs;
+			inherit pkgs-unstable;
+		};
 		modules = [
 			./configuration.nix
 			nixos-hardware.nixosModules.tuxedo-pulse-14-gen3

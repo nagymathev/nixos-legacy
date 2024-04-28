@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
 imports =
@@ -111,17 +111,20 @@ users.users.viktor = {
 	];
 };
 
+programs.zsh.enable = true;
+users.defaultUserShell = pkgs.zsh;
+
 # Allow unfree packages
 nixpkgs.config.allowUnfree = true;
 
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # List packages installed in system profile. To search, run:
 # $ nix search wget
-environment.systemPackages = with pkgs; [
+environment.systemPackages = [
 	#  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-	git
-	wget
-	neovim
+	pkgs.git
+	pkgs.wget
+	pkgs-unstable.neovim
 ];
 environment.variables.EDITOR = "nvim";
 
