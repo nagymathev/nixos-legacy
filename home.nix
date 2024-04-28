@@ -23,7 +23,7 @@ home.homeDirectory = "/home/viktor";
 # set cursor size and dpi for 4k monitor
 xresources.properties = {
 "Xcursor.size" = 36;
-"Xft.dpi" = 188;
+"Xft.dpi" = 144;
 };
 
 # Packages that should be installed to the user profile.
@@ -116,7 +116,7 @@ programs.alacritty = {
 	settings = {
 		env.TERM = "xterm-256color";
 		font = {
-			size = 12;
+			size = 9;
 			draw_bold_text_with_bright_colors = true;
 		};
 		scrolling.multiplier = 5;
@@ -127,9 +127,6 @@ programs.alacritty = {
 programs.zsh = {
 	enable = true;
 	enableCompletion = true;
-	zshrcExtra = ''
-	export PATH="$PATH:$HOME/bin:$HOME/.local/bin"
-	'';
 
 	shellAliases = {
 	};
