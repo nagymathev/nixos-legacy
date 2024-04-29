@@ -4,7 +4,7 @@ alias uh := update-home
 
 # rebuild system
 switch:
-    sudo nixos-rebuild switch
+    sudo nixos-rebuild switch --show-trace
 boot:
     sudo nixos-rebuild boot
 update:

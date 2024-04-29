@@ -147,8 +147,7 @@ programs.alacritty = {
 		env.TERM = "xterm-256color";
 		font = {
 			size = 9;
-			draw_bold_text_with_bright_colors = true;
-			family = "Fira Code Nerd Font Mono";
+			normal.family = "Fira Code Nerd Font Mono";
 		};
 		scrolling.multiplier = 5;
 		selection.save_to_clipboard = true;
@@ -161,7 +160,7 @@ programs.alacritty = {
 programs.zsh = {
 	enable = true;
 	enableCompletion = true;
-	enableAutosuggestions = true;
+	autosuggestion.enable = true;
 	shellAliases = {
 	};
 };
