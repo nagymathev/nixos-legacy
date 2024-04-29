@@ -44,6 +44,8 @@ home.packages = with pkgs; [
 	discord
 	anki-bin
 
+	wofi
+
 	# Commented out because I have not managed to find an automated solution yet.
 	#ciscoPacketTracer8 
 
