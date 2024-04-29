@@ -22,8 +22,8 @@ home.homeDirectory = "/home/viktor";
 
 # set cursor size and dpi for 4k monitor
 xresources.properties = {
-"Xcursor.size" = 36;
-"Xft.dpi" = 144;
+	"Xcursor.size" = 36;
+	"Xft.dpi" = 144;
 };
 
 # Packages that should be installed to the user profile.
@@ -174,9 +174,12 @@ programs.vscode = {
 		"editor.insertSpaces" = false;
 		"editor.indentSize" = "tabSize";
 		"editor.wordWrap" = "wordWrapColumn";
+
+		#"nix.formatterPath" = "";
 	};
 	extensions = [
-		pkgs.vscode-extensions.jnoortheen.nix-ide
+		#pkgs.vscode-extensions.jnoortheen.nix-ide
+		pkgs.vscode-extensions.bbenoist.nix
 	];
 };
 
