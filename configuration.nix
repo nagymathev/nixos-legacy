@@ -23,6 +23,7 @@ boot.loader.efi.canTouchEfiVariables = true;
 
 networking.hostName = "stellaris"; # Define your hostname.
 networking.wireless.enable = true; # Enables wireless support via wpa_supplicant.
+networking.wireless.userControlled.enable = true;
 networking.networkmanager.unmanaged = [
 	"*-foo-bar"
 ];
@@ -33,6 +34,7 @@ networking.networkmanager.unmanaged = [
 
 # Enable networking
 networking.networkmanager.enable = true;
+programs.nm-applet.enable = true;
 
 # Set your time zone.
 time.timeZone = "Europe/Budapest";
@@ -119,12 +121,14 @@ nixpkgs.config.allowUnfree = true;
 nix.settings.experimental-features = [ "nix-command" "flakes" ];
 # List packages installed in system profile. To search, run:
 # $ nix search wget
-environment.systemPackages = [
+environment.systemPackages = with pkgs; [
 	#  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-	pkgs.git
-	pkgs.wget
-	pkgs-unstable.neovim
+	git
+	wget
+	neovim
 	inputs.tuxedo-rs.packages."${pkgs.system}".tuxedo-rs
+	networkmanagerapplet
+
 ];
 environment.variables.EDITOR = "nvim";
 

@@ -1,13 +1,20 @@
-{ config, pkgs, pkgs-unstable, ... }:
+{ config, lib, pkgs, pkgs-unstable, inputs, ... }:
 
 {
 
 imports = [
 	./hyprland.nix
+	./waybar.nix
 ];
 
 home.username = "viktor";
 home.homeDirectory = "/home/viktor";
+
+# lib.meta = {
+# 	configPath = "/home/viktor/nixos";
+# 	mkMutableSymlink = path: config.lib.file.mkOutOfStoreSymlink
+# 		(config.lib.meta.configPath + lib.strings.removePrefix (toString inputs.self) (toString path));
+# };
 
 # link the configuration file in current directory to the specified location in home directory
 # home.file.".config/i3/wallpaper.jpg".source = ./wallpaper.jpg;
@@ -173,36 +180,6 @@ programs.zsh = {
 
 services.dunst = {
 	enable = true;
-};
-
-programs.waybar = {
-	enable = true;
-	settings = {
-		mainBar = {
-			layer = "top";
-			position = "top";
-			height = 30;
-			output = [
-				"eDP-2"
-			];
-			modules-left = [ "hyprland/workspaces" "hyprland/mode" "wlr/taskbar" ];
-			modules-center = [ "hyprland/window" "custom/hello-from-waybar" ];
-			modules-right = [ "mpd" "custom/mymodule#with-css-id" "temperature" "time" ];
-
-			"sway/workspaces" = {
-				disable-scroll = true;
-				all-outputs = true;
-			};
-			"custom/hello-from-waybar" = {
-				format = "hello {}";
-				max-length = 40;
-				interval = "once";
-				exec = pkgs.writeShellScript "hello-from-waybar" ''
-				echo "from within waybar"
-				'';
-			};
-		};
-	};
 };
 
 programs.vscode = {

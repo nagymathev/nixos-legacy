@@ -14,6 +14,7 @@ wayland.windowManager.hyprland = {
 			"/run/wrappers/bin/polkit-agent-helper-1"
 			"waybar"
 			"dunst"
+			"nm-applet"
 		];
 
 		"$terminal" = "alacritty";
@@ -99,7 +100,11 @@ wayland.windowManager.hyprland = {
 			force_default_wallpaper = -1;
 		};
 
-		windowrulev2 = "suppressevent maximize, class:.*";
+		windowrulev2 = [
+			"suppressevent maximize, class:.*"
+			"float,class:^(nz.co.mega.)$,title:^(MEGAsync)$"
+			"float, class:(nm-connection-editor)"
+		];
 
 		"$mainMod" = "SUPER";
 
