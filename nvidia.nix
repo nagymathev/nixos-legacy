@@ -24,6 +24,9 @@ hardware.opengl = {
 
 # Load nvidia driver for Xorg and Wayland
 services.xserver.videoDrivers = ["nvidia"];
+hardware.opengl.extraPackages = with pkgs; [
+	vaapiVdpau # may solve wayland not working
+];
 
 hardware.nvidia = {
 
