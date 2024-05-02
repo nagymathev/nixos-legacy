@@ -132,6 +132,8 @@ home.packages = with pkgs; [
 	usbutils # lsusb
 ];
 
+catppuccin.flavour = "macchiato";
+
 # basic configuration of git, please change to your own
 programs.git = {
 	enable = true;

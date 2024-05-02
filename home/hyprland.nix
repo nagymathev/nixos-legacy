@@ -105,6 +105,7 @@ wayland.windowManager.hyprland = {
 			"float,class:^(nz.co.mega.)$,title:^(MEGAsync)$"
 			"float, class:(nm-connection-editor)"
 			"float, class:^(steam)$, title:^(Friends List)$"
+			"float, title:^(Open File)$"
 		];
 
 		"$mainMod" = "SUPER";

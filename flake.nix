@@ -12,19 +12,13 @@ inputs = {
 		inputs.nixpkgs.follows = "nixpkgs";
 	};
 	tuxedo-rs.url = "github:AaronErhardt/tuxedo-rs";
+	catppuccin.url = "github:catppuccin/nix";
 };
 
-outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, ... }@inputs:
+outputs = { self, nixpkgs, nixos-hardware, home-manager, catppuccin, ... }@inputs:
 let
 	system = "x86_64-linux";
 	pkgs = import nixpkgs {
-		inherit system;
-		config.allowUnfree = true;
-		config.permittedInsecurePackages = [
-			"electron-25.9.0"
-		];
-	};
-	pkgs-unstable = import nixpkgs-unstable {
 		inherit system;
 		config.allowUnfree = true;
 		config.permittedInsecurePackages = [
@@ -38,16 +32,20 @@ in {
 		specialArgs = {
 			inherit inputs;
 			inherit pkgs;
-			inherit pkgs-unstable;
 		};
 		modules = [
 			./configuration.nix
 			nixos-hardware.nixosModules.tuxedo-pulse-14-gen3
+			catppuccin.nixosModules.catppuccin
 
 			home-manager.nixosModules.home-manager {
 				home-manager.useGlobalPkgs = true;
 				home-manager.useUserPackages = true;
-				home-manager.users.viktor = import ./home;
+				home-manager.users.viktor.imports =
+				[
+					./home
+					catppuccin.homeManagerModules.catppuccin
+				];
 			}
 		];
 	};

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, pkgs-unstable, inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
 imports =
@@ -117,8 +117,8 @@ users.users.viktor = {
 programs.zsh.enable = true;
 users.defaultUserShell = pkgs.zsh;
 
-fonts.packages = [
-	pkgs-unstable.fira-code-nerdfont
+fonts.packages = with pkgs; [
+	fira-code-nerdfont
 ];
 
 # Allow unfree packages
