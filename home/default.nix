@@ -60,6 +60,7 @@ home.packages = with pkgs; [
 
 	wofi
 	hyprpaper
+	swww
 	# grim
 	# slurp
 	# wl-clipboard
