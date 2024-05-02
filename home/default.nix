@@ -37,6 +37,8 @@ xresources.properties = {
 	"Xft.dpi" = 144;
 };
 
+home.sessionVariables.NIXOS_OZONE_WL = "1";
+
 # Packages that should be installed to the user profile.
 home.packages = with pkgs; [
 
@@ -44,6 +46,7 @@ home.packages = with pkgs; [
 	megasync
 	libreoffice
 	vlc
+	bitwarden-desktop
 
 	firefox
 	vivaldi
