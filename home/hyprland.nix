@@ -1,6 +1,9 @@
 { config, ... }:
+let
+	screenshotarea = "grimblast --notify copy area";
+in {
 
-{
+xdg.configFile."hypr/hyprpaper.conf".source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/nixos/home/hypr/hyprpaper.conf";
 
 wayland.windowManager.hyprland = {
 	enable = true;
@@ -11,10 +14,7 @@ wayland.windowManager.hyprland = {
 		];
 		
 		exec-once = [
-			"/run/wrappers/bin/polkit-agent-helper-1"
-			"waybar"
-			"dunst"
-			"nm-applet"
+			"/home/viktor/nixos/home/scripts/autostart.sh"
 		];
 
 		"$terminal" = "alacritty";
@@ -119,6 +119,7 @@ wayland.windowManager.hyprland = {
 			"$mainMod, J, togglesplit"
 			"$mainMod, F, fullscreen, 1"
 			"$mainMod SHIFT, F, fullscreen, 0"
+			", Print, exec, ${screenshotarea}"
 
 			"$mainMod, left, movefocus, l"
 			"$mainMod, right, movefocus, r"

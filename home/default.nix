@@ -56,6 +56,11 @@ home.packages = with pkgs; [
 	anki-bin
 
 	wofi
+	hyprpaper
+	# grim
+	# slurp
+	# wl-clipboard
+	grimblast
 
 	# Commented out because I have not managed to find an automated solution yet.
 	#ciscoPacketTracer8 

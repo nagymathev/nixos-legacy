@@ -67,6 +67,11 @@ programs.hyprland.enable = true;
 environment.sessionVariables.NIXOS_OZONE_WL = "1";
 environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
+xdg.portal = {
+	enable = true;
+	extraPortals =  [pkgs.xdg-desktop-portal-gtk];
+};
+
 # Configure keymap in X11
 services.xserver = {
 	xkb.layout = "gb";
@@ -104,7 +109,7 @@ users.users.viktor = {
 	isNormalUser = true;
 	description = "viktor";
 	extraGroups = [ "networkmanager" "wheel" ];
-  packages = with pkgs; [
+  	packages = with pkgs; [
 	];
 };
 
