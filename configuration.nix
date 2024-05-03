@@ -59,14 +59,14 @@ services.xserver.enable = true;
 
 # Enable the KDE Plasma Desktop Environment.
 services.displayManager.sddm.enable = true;
-services.displayManager.sddm.wayland.enable = true;
+# services.displayManager.sddm.wayland.enable = true;
 services.xserver.desktopManager.plasma5.enable = true;
 # services.desktopManager.plasma6.enable = true;
 
-programs.hyprland.enable = true;
-environment.sessionVariables.NIXOS_OZONE_WL = "1";
-environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
-programs.xwayland.enable = true;
+# programs.hyprland.enable = true;
+# environment.sessionVariables.NIXOS_OZONE_WL = "1";
+# environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
+# programs.xwayland.enable = true;
 
 xdg.portal = {
 	enable = true;
